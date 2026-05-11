@@ -358,7 +358,7 @@ void Game::initGameOver(bool won) {
     subtitleText.setFillColor(sf::Color::White);
     subtitleText.setString(won
         ? std::string("All waves survived!  Gold left: ") + std::to_string(gold)
-        : std::string("Base got captured,  Lives: 0"));
+        : std::string("Base got captured,  Lives left: 0"));
     centre(subtitleText, WIN_H / 2.f);
 
     promptText.setFont(font);

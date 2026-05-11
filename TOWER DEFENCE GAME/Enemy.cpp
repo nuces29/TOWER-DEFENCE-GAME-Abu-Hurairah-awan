@@ -3,9 +3,6 @@
 #include <algorithm>
 #include <cstring>
 
-// ---------------------------------------------------------------
-// Enemy (base)
-// ---------------------------------------------------------------
 void Enemy::loadTexture(const char* path) {
     if (texture.loadFromFile(path)) {
         // Scale 512x512 sprite down to 28x28 in-game pixels

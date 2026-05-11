@@ -1,6 +1,6 @@
 #include "WaveManager.h"
 #include <cstring>
-
+// manages waves
 WaveManager::WaveManager()
     : currentWave(0), waveActive(false), waveComplete(false),
       spawnTimer(0.f), queueSize(0), queueIndex(0), queueSpawned(0) {}

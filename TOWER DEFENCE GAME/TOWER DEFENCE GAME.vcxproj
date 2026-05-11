@@ -129,28 +129,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\files (1)\Enemy.cpp" />
-    <ClCompile Include="..\..\..\..\Downloads\files (1)\Game.cpp" />
-    <ClCompile Include="..\..\..\..\Downloads\files (1)\HUD.cpp" />
-    <ClCompile Include="..\..\..\..\Downloads\files (1)\main.cpp" />
-    <ClCompile Include="..\..\..\..\Downloads\files (1)\Map.cpp" />
-    <ClCompile Include="..\..\..\..\Downloads\files (1)\Projectile.cpp" />
-    <ClCompile Include="..\..\..\..\Downloads\files (1)\Tower.cpp" />
-    <ClCompile Include="..\..\..\..\Downloads\files (1)\WaveManager.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="Tower.cpp" />
+    <ClCompile Include="WaveManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\files (1)\Constants.h" />
-    <ClInclude Include="..\..\..\..\Downloads\files (1)\Enemy.h" />
-    <ClInclude Include="..\..\..\..\Downloads\files (1)\Entity.h" />
-    <ClInclude Include="..\..\..\..\Downloads\files (1)\Game.h" />
-    <ClInclude Include="..\..\..\..\Downloads\files (1)\HUD.h" />
-    <ClInclude Include="..\..\..\..\Downloads\files (1)\Map.h" />
-    <ClInclude Include="..\..\..\..\Downloads\files (1)\Projectile.h" />
-    <ClInclude Include="..\..\..\..\Downloads\files (1)\Tower.h" />
-    <ClInclude Include="..\..\..\..\Downloads\files (1)\WaveManager.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="HUD.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="Tower.h" />
+    <ClInclude Include="WaveManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+    <None Include="sfml-graphics-d-2.dll" />
+    <None Include="sfml-system-d-2.dll" />
+    <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
