@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TOWER DEFENCE GAME", "TOWER DEFENCE GAME\TOWER DEFENCE GAME.vcxproj", "{AD6518BE-FB38-42B0-9A23-75E7E70DDD04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD6518BE-FB38-42B0-9A23-75E7E70DDD04}.Debug|x64.ActiveCfg = Debug|x64
+		{AD6518BE-FB38-42B0-9A23-75E7E70DDD04}.Debug|x64.Build.0 = Debug|x64
+		{AD6518BE-FB38-42B0-9A23-75E7E70DDD04}.Debug|x86.ActiveCfg = Debug|Win32
+		{AD6518BE-FB38-42B0-9A23-75E7E70DDD04}.Debug|x86.Build.0 = Debug|Win32
+		{AD6518BE-FB38-42B0-9A23-75E7E70DDD04}.Release|x64.ActiveCfg = Release|x64
+		{AD6518BE-FB38-42B0-9A23-75E7E70DDD04}.Release|x64.Build.0 = Release|x64
+		{AD6518BE-FB38-42B0-9A23-75E7E70DDD04}.Release|x86.ActiveCfg = Release|Win32
+		{AD6518BE-FB38-42B0-9A23-75E7E70DDD04}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17565159-21F0-4C63-8B18-F8D5C78CE2B2}
+	EndGlobalSection
+EndGlobal
