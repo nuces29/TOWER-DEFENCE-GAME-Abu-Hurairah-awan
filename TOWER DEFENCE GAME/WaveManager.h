@@ -27,7 +27,8 @@ public:
     void reset();
 
 private:
-    struct SpawnEntry {
+    class SpawnEntry {
+    public:
         int   type;     
         int   count;
         float interval;

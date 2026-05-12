@@ -210,9 +210,13 @@ void Game::update(float dt) {
         return;
     }
 
+    // Pass current mouse position for hover highlight
+        sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+    int hoveredTower = hud->handleClick(mousePos);  
+
     hud->update(gold, lives,
-                waveManager.getCurrentWave(), WaveManager::TOTAL_WAVES,
-                selectedTowerType, waveManager.isWaveActive());
+        waveManager.getCurrentWave(), WaveManager::TOTAL_WAVES,
+        selectedTowerType, waveManager.isWaveActive(), hoveredTower);
 }
 
 void Game::updateCollisions() {

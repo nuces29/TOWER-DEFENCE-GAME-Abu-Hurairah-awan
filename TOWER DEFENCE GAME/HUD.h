@@ -5,10 +5,12 @@ class HUD {
 public:
     static const int NUM_TOWERS = 5;
 
-    struct TowerButton {
+    class TowerButton {
+    public:
         sf::RectangleShape rect;
         sf::Text           label;
         sf::Text           costText;
+        sf::Text           statsText;
         int                towerType;
         int                cost;
     };
@@ -16,7 +18,7 @@ public:
     HUD(sf::Font& font, int panelX);
 
     void update(int gold, int lives, int wave, int totalWaves,
-                int selectedTower, bool waveActive);
+                int selectedTower, bool waveActive, int hoveredTower = -1);
     void render(sf::RenderWindow& window) const;
 
     int  handleClick(sf::Vector2i mousePos);          // tower type or -1
@@ -38,4 +40,8 @@ private:
     sf::Text           sellLabel;
 
     void buildButtons();
+    sf::RectangleShape descPanel;
+    sf::Text           descTitle;
+    sf::Text           descBody;
+    int                lastHighlighted;
 };
