@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include<SFML/Audio.hpp>
 #include "Constants.h"
 #include "Map.h"
 #include "Enemy.h"
@@ -21,6 +22,7 @@ private:
     sf::RenderWindow window;
     sf::Font         font;
     sf::Clock        clock;
+    sf::Music          music;
 
     Map        map;
     WaveManager waveManager;
@@ -35,11 +37,18 @@ private:
     Projectile* projectiles;
     int         projectileCount;
 
+    // Game state 
     GameState gameState;
     int       gold;
     int       lives;
     int       selectedTowerType;
-    Tower*    selectedTower;
+    Tower* selectedTower;
+    int       score;
+    int       highScore;
+
+    //High score
+    void saveHighScore();
+    void loadHighScore();
 
     sf::Text titleText, subtitleText, promptText, myname;
 

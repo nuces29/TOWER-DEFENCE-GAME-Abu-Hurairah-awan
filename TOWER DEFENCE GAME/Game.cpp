@@ -2,6 +2,7 @@
 #include <cmath>
 #include <cstring>
 #include <sstream>
+#include <fstream>
 
 static const int WIN_W       = 1256;
 static const int WIN_H       = 720;
@@ -17,7 +18,7 @@ Game::Game()
       projectiles(nullptr),
       gameState(GameState::MENU),
       gold(START_GOLD), lives(START_LIVES),
-      selectedTowerType(-1), selectedTower(nullptr)
+      selectedTowerType(-1), selectedTower(nullptr), score(0), highScore(0)
 {
     window.setFramerateLimit(60);
 
@@ -27,9 +28,16 @@ Game::Game()
     projectiles = new Projectile[MAX_PROJECTILES];
 
     font.loadFromFile("assets/font.ttf");
+    
+    if (music.openFromFile("assets/music.mp3")) {
+        music.setLoop(true);
+        music.play();
+    }
 
     hud = new HUD(font, PANEL_X);
+    loadHighScore();
     initMenu();
+    
 }
 
 Game::~Game() {
@@ -310,7 +318,10 @@ void Game::initMenu() {
     promptText.setFont(font);
     promptText.setCharacterSize(20);
     promptText.setFillColor(sf::Color(150, 255, 150));
-    promptText.setString("Click anywhere to start  |  R to Restart  |  ESC to Quit");
+    std::string menuPrompt = "Click anywhere to start  |  R = Restart  |  ESC = Quit";
+    if (highScore > 0)
+        menuPrompt += std::string("   |   Best Score: ") + std::to_string(highScore);
+    promptText.setString(menuPrompt);
     centre(promptText, WIN_H / 2.f + 40);
 }
 
@@ -335,6 +346,8 @@ void Game::initGame() {
 
 void Game::initGameOver(bool won) {
     gameState = won ? GameState::WIN : GameState::GAME_OVER;
+    score = gold + (lives * 50);
+    saveHighScore();
 
     auto centre = [&](sf::Text& t, float y) {
         sf::FloatRect r = t.getLocalBounds();
@@ -356,9 +369,12 @@ void Game::initGameOver(bool won) {
     subtitleText.setFont(font);
     subtitleText.setCharacterSize(24);
     subtitleText.setFillColor(sf::Color::White);
-    subtitleText.setString(won
+    std::string result = won
         ? std::string("All waves survived!  Gold left: ") + std::to_string(gold)
-        : std::string("Base got captured,  Lives left: 0"));
+        : std::string("Base overrun!  Lives: 0");
+    result += std::string("   Score: ") + std::to_string(score)
+        + std::string("   Best: ") + std::to_string(highScore);
+    subtitleText.setString(result);
     centre(subtitleText, WIN_H / 2.f);
 
     promptText.setFont(font);
@@ -387,5 +403,22 @@ int Game::towerCost(int type) const {
     case 3: return SlowTower::getBuyCost();
     case 4: return LaserTower::getBuyCost();
     default: return 100;
+    }
+}
+
+void Game::saveHighScore() {
+    if (score > highScore) {
+        highScore = score;
+        std::ofstream file("highscore.txt");
+        if (file.is_open()) {
+            file << highScore;
+        }
+    }
+}
+
+void Game::loadHighScore() {
+    std::ifstream file("highscore.txt");
+    if (file.is_open()) {
+        file >> highScore;
     }
 }
